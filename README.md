@@ -2,7 +2,7 @@
 
 ```go
 
-var sender = go_msteams.Sender{webhookUrl: "TEAMS_WEBHOOK_URL"}
+var sender = go_msteams.Sender{WebhookUrl: "TEAMS_WEBHOOK_URL"}
 
 var message = go_msteams.NewMessage("My Message")
 message.SetColor("#00FF00")
