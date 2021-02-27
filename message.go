@@ -69,7 +69,7 @@ func (m *Message) AddSection(title string, subtitle string, image string) *Secti
 }
 
 type Sender struct {
-	webhookUrl string
+	WebhookUrl string
 }
 
 
@@ -121,7 +121,7 @@ func (s Sender) SendMessage(message Message) error{
 	if err != nil {
 		return err
 	}
-	resp, err := http.Post(s.webhookUrl, "application/json", bytes.NewBuffer(data))
+	resp, err := http.Post(s.WebhookUrl, "application/json", bytes.NewBuffer(data))
 	if err != nil {
 		return err
 	}
