@@ -13,6 +13,10 @@ const (
 	DefaultContext = "http://schema.org/extensions"
 )
 
+
+
+
+
 type Fact struct {
 	Name string `json:"name"`
 	Value string `json:"value"`
@@ -24,6 +28,8 @@ type Section struct {
 	Image string `json:"activityImage"`
 	Facts []Fact `json:"facts"`
 }
+
+
 
 func (s *Section) AddFact(name string, value string) {
 	var fact = Fact{
@@ -39,17 +45,22 @@ func (s *Section) AddFact(name string, value string) {
 }
 
 type Message struct {
-	MessageType string `json:"@type"`
-	Context string `json:"@context"`
-	Summary string `json:"summary"`
-	Text string `json:"text"`
-	Sections []Section `json:"sections"`
-	Color string `json:"themeColor"`
+	MessageType string            `json:"@type"`
+	Context string                `json:"@context"`
+	Summary string                `json:"summary"`
+	Text string                   `json:"text"`
+	Sections []Section            `json:"sections"`
+	Color string                  `json:"themeColor"`
+	PotentialActions []Button `json:"potentialAction"`
 
 }
 
 func (m *Message) SetColor(color string) {
 	m.Color = color
+}
+
+func (m *Message) AddButton(btn Button) {
+	m.PotentialActions = append(m.PotentialActions, btn)
 }
 
 func (m *Message) AddSection(title string, subtitle string, image string) *Section{
