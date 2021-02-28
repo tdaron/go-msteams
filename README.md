@@ -26,7 +26,7 @@ message.AddButton(openuri)
 
 err := sender.SendMessage(message)
 if err != nil {
-    t.Error(err)
+    panic(err)
 }
 
 
